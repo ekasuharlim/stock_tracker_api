@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using StockTrackingApi.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+string? connectionString  = builder.Configuration.GetConnectionString("stockApiDb");
+
+
+builder.Services.AddDbContext<StockTrackingDbContext>(
+    options => options.UseSqlServer(connectionString)
+);
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
