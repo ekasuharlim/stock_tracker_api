@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StockTrackingApi.Data;
 
@@ -11,9 +12,11 @@ using StockTrackingApi.Data;
 namespace stock_tracker_api.Migrations
 {
     [DbContext(typeof(StockTrackingDbContext))]
-    partial class StockTrackingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250221071045_db_for_transactions")]
+    partial class db_for_transactions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
